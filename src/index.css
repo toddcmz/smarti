@@ -2,23 +2,34 @@
   box-sizing: border-box;
   margin: 0rem;
   padding: 0rem;
+  color: rgb(78, 78, 78);
 }
 
 body {
-  background-color: rgb(227, 210, 243);
+  background-color: rgb(211, 235, 252);
+  font-family: "Roboto", sans-serif;
+  font-weight:500;
 }
 
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .marty-logo {
   border-radius: 50%;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .recording-results {
@@ -57,5 +68,13 @@ body {
 
   &:hover {
     background-color: rgb(117, 35, 35)
+  }
+}
+
+.send-answer-button {
+  background-color: #F2A644;
+
+  &:hover {
+    background-color: #EE7D3B;
   }
 }

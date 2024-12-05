@@ -1,6 +1,6 @@
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 
-export function RecordButton() {
+export function Record() {
 
   const {
     textRecorded,
