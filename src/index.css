@@ -1,5 +1,61 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0rem;
   padding: 0rem;
+}
+
+body {
+  background-color: rgb(227, 210, 243);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.marty-logo {
+  border-radius: 50%;
+}
+
+.recording-results {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.button {
+  height: 3rem;
+  width: 12rem;
+  border-radius: 24px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.record-button {
+  background-color: rgb(62, 173, 62);
+
+  &:hover {
+    background-color: rgb(39, 139, 39);
+  }
+}
+
+.stop-record-button {
+  background-color: brown;
+
+  &:hover {
+    background-color: rgb(117, 35, 35)
+  }
 }
