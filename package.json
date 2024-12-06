@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@types/dom-speech-recognition": "^0.0.4",
+    "axios": "^1.7.9",
+    "openai": "^4.76.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

@@ -10,14 +10,13 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window){
 
 const useSpeechRecognition = () => {
 
-  const [textRecorded, setTextRecorded] = useState("");
+  const [textRecorded, setTextRecorded] = useState("Nothing Yet");
   const [currentlyListening, setCurrentlyListening] = useState(false);
 
   useEffect(() =>{
     if (!recordSpeech) return;
     
     recordSpeech.onresult = (event: SpeechRecognitionEvent) => {
-      console.log("onresult event from custom hook: ", event)
       setTextRecorded(event.results[0][0].transcript)
       recordSpeech.stop()
       setCurrentlyListening(false) 

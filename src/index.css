@@ -20,11 +20,24 @@ body {
   gap: 4rem;
 }
 
+.image-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .marty-logo {
   border-radius: 50%;
+  border: 5px solid #616970;
+  &:hover{
+    border: 5px solid #EE7D3B;
+  }
 }
 
 .buttons-container{
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +46,6 @@ body {
 }
 
 .recording-results {
-  max-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
