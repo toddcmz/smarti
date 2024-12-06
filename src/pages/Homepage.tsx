@@ -26,9 +26,8 @@ export function Homepage() {
         <h4 className="marty-subtext">{martyClicked}</h4>
       </div>
       
-      <div className="buttons-container">
-        <RecordAndAnswer />
-      </div>
+      <RecordAndAnswer />
+      
     </div>
 
   )
