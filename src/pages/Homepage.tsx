@@ -6,10 +6,20 @@ export function Homepage() {
 
   const [martyClicked, setMartyClicked] = useState("Click My Picture to Hear a Question")
 
+  const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets']
+  const [defineThisTerm, setDefineThisTerm] = useState('debt')
+
+  const chooseTerm = () => {
+    let thisTermIndex = Math.floor(Math.random() * (financeTerms.length - 1))
+    setDefineThisTerm(financeTerms[thisTermIndex])
+  }
+
   const clickedOnMarty = () => {
-    let martyQuestion = new SpeechSynthesisUtterance("Marty here. In a sentence or two, what is debt?")
+    chooseTerm()
+    console.log(defineThisTerm)
+    let martyQuestion = new SpeechSynthesisUtterance(`Marty here. In the context of finances, can you give a short definition or example for ${defineThisTerm}?`)
     speechSynthesis.speak(martyQuestion)
-    setMartyClicked("In a sentence or two, what is debt?")
+    setMartyClicked(`In a sentence or two, define or provide and example for ${defineThisTerm}.`)
   }
 
   return (
@@ -26,7 +36,7 @@ export function Homepage() {
         <h4 className="marty-subtext">{martyClicked}</h4>
       </div>
       
-      <RecordAndAnswer />
+      <RecordAndAnswer defineThisTerm={defineThisTerm}/>
       
     </div>
 

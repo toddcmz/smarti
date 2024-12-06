@@ -2,7 +2,11 @@ import { useEffect, useState } from "react"
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import axios from "axios"
 
-export function RecordAndAnswer() {
+type Props = {
+  defineThisTerm: string
+}
+
+export function RecordAndAnswer(defineThisTerm:Props) {
 
   const {
     textRecorded,
@@ -39,7 +43,7 @@ export function RecordAndAnswer() {
       const requestBody = {
         model: "gpt-4o-mini",
         messages: [{
-          role: 'user', content: `Yes or no, is '${textRecorded}' a reasonable general definition or example of debt?
+          role: 'user', content: `Yes or no, is '${textRecorded}' a reasonable general definition or example for ${defineThisTerm}?
           After saying yes or no, provide a short, one-sentence explanation.` }]
       };
 
