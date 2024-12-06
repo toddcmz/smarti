@@ -6,7 +6,7 @@ export function Homepage() {
 
   const [martyClicked, setMartyClicked] = useState("Click My Picture to Hear a Question")
 
-  const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets']
+  const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets', 'inflation', 'taxes']
   const [defineThisTerm, setDefineThisTerm] = useState('debt')
 
   const chooseTerm = () => {
@@ -16,7 +16,6 @@ export function Homepage() {
 
   const clickedOnMarty = () => {
     chooseTerm()
-    console.log(defineThisTerm)
     let martyQuestion = new SpeechSynthesisUtterance(`Marty here. In the context of finances, can you give a short definition or example for ${defineThisTerm}?`)
     speechSynthesis.speak(martyQuestion)
     setMartyClicked(`In a sentence or two, define or provide and example for ${defineThisTerm}.`)
