@@ -6,7 +6,8 @@ type Props = {
   defineThisTerm: string
 }
 
-export function RecordAndAnswer(defineThisTerm:Props) {
+export function RecordAndAnswer({defineThisTerm}:Props) {
+
 
   const {
     textRecorded,
@@ -23,7 +24,10 @@ export function RecordAndAnswer(defineThisTerm:Props) {
 
   useEffect (()=> {
     let tempContent = checkAnswerResult.slice(0,2).toLowerCase()
-    if (checkAnswerResult === "Waiting for a Recording"){
+    if (checkAnswerResult === "Waiting for a Recording" ||
+      defineThisTerm === "No Term Yet" ||
+      textRecorded === "No Recording Yet"
+    ){
       return
     }else if(tempContent === "ye"){
       setPowerAwarded("Congratulations. Marti thinks you're right. Take a free move.")
@@ -33,6 +37,13 @@ export function RecordAndAnswer(defineThisTerm:Props) {
   },[checkAnswerResult])
 
   const promptChatGpt = async () => {
+    if(defineThisTerm==="No Term Yet"){
+      setCheckAnswerResult("No question asked, yet. Click my picture to get a question, then record an answer.")
+      return
+    }else if(textRecorded === "No Recording Yet"){
+      setCheckAnswerResult("No answer recorded, yet. Record an answer to have me check it.")
+      return
+    }
     try {
       const apiUrl = "https://api.openai.com/v1/chat/completions"
       const headers = {

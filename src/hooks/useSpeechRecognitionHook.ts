@@ -10,7 +10,7 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window){
 
 const useSpeechRecognition = () => {
 
-  const [textRecorded, setTextRecorded] = useState("Nothing Yet");
+  const [textRecorded, setTextRecorded] = useState("No Recording Yet");
   const [currentlyListening, setCurrentlyListening] = useState(false);
 
   useEffect(() =>{

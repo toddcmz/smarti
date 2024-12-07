@@ -61,6 +61,7 @@ body {
 
 .marty-subtext{
   text-align: center;
+  width: 300px;
 }
 
 .recording-and-reward-container{
@@ -128,6 +129,10 @@ body {
   &:hover {
     background-color: #EE7D3B;
   }
+}
+
+.check-answer-status{
+  text-align: center;
 }
 
 .reward-container{
