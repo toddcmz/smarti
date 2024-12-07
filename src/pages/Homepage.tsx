@@ -4,7 +4,7 @@ import { RecordAndAnswer } from "../components/RecordAndAnswer"
 
 export function Homepage() {
 
-  const [martyClicked, setMartyClicked] = useState("Click My Picture to Hear a Question")
+  const [martyClicked, setMartyClicked] = useState("Click or Tap My Picture to Hear a Question")
 
   const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets', 'inflation', 'taxes']
   const [defineThisTerm, setDefineThisTerm] = useState('debt')
