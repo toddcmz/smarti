@@ -9,7 +9,7 @@ export function Homepage() {
   const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets', 'inflation', 'taxes']
   const [defineThisTerm, setDefineThisTerm] = useState('No Term Yet')
 
-  const clickedOnMarty = () => {
+  function clickedOnMarty() {
     let thisTermIndex = Math.floor(Math.random() * (financeTerms.length - 1))
     if(defineThisTerm === financeTerms[thisTermIndex]){
       if(thisTermIndex === (financeTerms.length-1)){
