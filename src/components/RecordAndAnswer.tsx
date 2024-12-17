@@ -20,7 +20,11 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
   const [checkAnswerResult, setCheckAnswerResult] = useState("Waiting for a Recording")
   const letMeIn = import.meta.env.VITE_APP_ACCESS_DEMO_API
 
-  const [powerAwarded, setPowerAwarded] = useState("Check your recording to see what you get!")
+  const [showInteractionDetails, setShowInteractionDetails] = useState(false)
+
+  function showHideDetails() {
+    setShowInteractionDetails(!showInteractionDetails)
+  }
 
   useEffect(() => {
     let tempContent = checkAnswerResult.slice(0, 2).toLowerCase()
@@ -30,9 +34,15 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
     ) {
       return
     } else if (tempContent === "ye") {
-      setPowerAwarded("Congratulations. Marti thinks you're right. Take a free move.")
+
+      let martyAnswer = new SpeechSynthesisUtterance("You are so right! Pick a smarty card to see what you've won.")
+      speechSynthesis.speak(martyAnswer)
+
     } else {
-      setPowerAwarded("Sorry, Marti didn't like your answer. No bonus awarded.")
+
+      let martyAnswer = new SpeechSynthesisUtterance("Oopsy, Marty thinks that wasn't quite right. Better luck next time.")
+      speechSynthesis.speak(martyAnswer)
+
     }
   }, [checkAnswerResult])
 
@@ -135,20 +145,29 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
           <p>Your browser does not support speech recognition. All modern browsers except Firefox are currently supported. </p>
         )}
 
-        <div className="reward-container">
-
-          {currentlyListening ?
-            <p className="currently-recording-status">Status: Recording Your Answer...</p>
-            :
-            <p className="currently-recording-status">Status: Not Currently Recording</p>
-          }
-
-          <p className="recorded-text">What I Heard: {textRecorded}</p>
-          <p className="check-answer-status">Marty Says: {checkAnswerResult}</p>
-          <h2>Game Bonus:</h2>
-          <br />
-          <h3 className="reward">{powerAwarded}</h3>
+        <div
+          className="show-interaction-details"
+          onClick={showHideDetails}
+        >
+          <p>Show/Hide Details</p>
         </div>
+
+        {showInteractionDetails ?
+          <div className="interaction-details-container">
+            {currentlyListening ?
+              <p>Status: Recording Your Answer...</p>
+              :
+              <p>Status: Not Currently Recording</p>
+            }
+            <br />
+            <p>What I Heard: {textRecorded}</p>
+            <br />
+            <p>Marty Says: {checkAnswerResult}</p>
+          </div>
+          :
+          <></>
+        }
+
       </div>
     </div>
 

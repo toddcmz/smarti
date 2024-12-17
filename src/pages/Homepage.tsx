@@ -5,7 +5,7 @@ import { RecordAndAnswer } from "../components/RecordAndAnswer"
 
 export function Homepage() {
 
-  const [martyClicked, setMartyClicked] = useState("What is ... ?")
+  const [martyClicked, setMartyClicked] = useState("notClicked")
 
   const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets', 'inflation', 'taxes']
   const [defineThisTerm, setDefineThisTerm] = useState('No Term Yet')
@@ -38,30 +38,44 @@ export function Homepage() {
   return (
     <div className="main-container">
 
-      <div className="call-marty">
-        <p className="call-text">CALL</p>
-        <img src={callIcon} alt="phone icon" className="call-icon" />
-        <p className="call-text">MARTY</p>
-      </div>
-
-      <div className="image-container">
-        <img
-          src={marty}
-          alt="Marty Logo"
-          className="marty-logo"
+      {martyClicked === "notClicked" ?
+        <div
+          className="call-marty"
           onClick={clickedOnMarty}
-        />
-      </div>
+        >
+          <p className="call-text">CALL</p>
+          <img src={callIcon} alt="phone icon" className="call-icon" />
+          <p className="call-text">MARTY</p>
+        </div>
+        :
+        <div className="image-container">
+          <img
+            src={marty}
+            alt="Marty Logo"
+            className="marty-logo"
+            onClick={clickedOnMarty}
+          />
+        </div>
+      }
 
-      <div className="marty-text-container">
-        <p className="marty-text marty-title">Marty the <span className="marty-yellow">SMARTI</span></p>
-        <p className="marty-text marty-subtitle">(<span className="marty-yellow">S</span>uper <span className="marty-yellow">M</span>ighty <span className="marty-yellow">ART</span>ificial <span className="marty-yellow">I</span>ntelligence)</p>
-        <br />
-        <p className="marty-text marty-question-text">Question:</p>
-        <p className="marty-text marty-question-text">{martyClicked}</p>
-      </div>
+      {martyClicked === "notClicked" ?
+        <></>
+        :
+        <div className="marty-text-container">
+          <p className="marty-text marty-title">Marty the <span className="marty-yellow">SMARTI</span></p>
+          <p className="marty-text marty-subtitle">(<span className="marty-yellow">S</span>uper <span className="marty-yellow">M</span>ighty <span className="marty-yellow">ART</span>ificial <span className="marty-yellow">I</span>ntelligence)</p>
+          <br />
+          <p className="marty-text marty-question-text">Question:</p>
+          <p className="marty-text marty-question-text">{martyClicked}</p>
+        </div>
+      }
 
-      <RecordAndAnswer defineThisTerm={defineThisTerm} />
+      {martyClicked === "notClicked" ?
+        <></>
+        :
+        <RecordAndAnswer defineThisTerm={defineThisTerm} />
+      }
+
 
     </div>
 
