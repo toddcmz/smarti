@@ -6,7 +6,7 @@ type Props = {
   defineThisTerm: string
 }
 
-export function RecordAndAnswer({defineThisTerm}:Props) {
+export function RecordAndAnswer({ defineThisTerm }: Props) {
 
 
   const {
@@ -22,25 +22,25 @@ export function RecordAndAnswer({defineThisTerm}:Props) {
 
   const [powerAwarded, setPowerAwarded] = useState("Check your recording to see what you get!")
 
-  useEffect (()=> {
-    let tempContent = checkAnswerResult.slice(0,2).toLowerCase()
+  useEffect(() => {
+    let tempContent = checkAnswerResult.slice(0, 2).toLowerCase()
     if (checkAnswerResult === "Waiting for a Recording" ||
       defineThisTerm === "No Term Yet" ||
       textRecorded === "No Recording Yet"
-    ){
+    ) {
       return
-    }else if(tempContent === "ye"){
+    } else if (tempContent === "ye") {
       setPowerAwarded("Congratulations. Marti thinks you're right. Take a free move.")
-    }else{
+    } else {
       setPowerAwarded("Sorry, Marti didn't like your answer. No bonus awarded.")
     }
-  },[checkAnswerResult])
+  }, [checkAnswerResult])
 
   const promptChatGpt = async () => {
-    if(defineThisTerm==="No Term Yet"){
+    if (defineThisTerm === "No Term Yet") {
       setCheckAnswerResult("No question asked, yet. Click my picture to get a question, then record an answer.")
       return
-    }else if(textRecorded === "No Recording Yet"){
+    } else if (textRecorded === "No Recording Yet") {
       setCheckAnswerResult("No answer recorded, yet. Record an answer to have me check it.")
       return
     }
@@ -74,9 +74,9 @@ export function RecordAndAnswer({defineThisTerm}:Props) {
 
             <button
               className="button record-button"
-              onClick={startListening}
+              //onClick={startListening}
             >
-              Record Answer
+              <p className="button-label">Record Your Answer</p>
             </button>
 
             {currentlyListening ?
@@ -86,27 +86,23 @@ export function RecordAndAnswer({defineThisTerm}:Props) {
             }
 
             <button
-              className="button stop-record-button"
-              onClick={stopListening}
-            >
-              Stop Recording
-            </button>
-            <p className="recorded-text">What I Heard: {textRecorded}</p>
-
-            <button
               className="button send-answer-button"
-              onClick={promptChatGpt}
-            >Check Answer</button>
+              //onClick={promptChatGpt}
+            >
+              <p className="button-label">Send Your Answer</p>
+            </button>
             <p className="check-answer-status">Marty Says: {checkAnswerResult}</p>
           </>
         ) : (
           <p>Your browser does not support speech recognition. All modern browsers except Firefox are currently supported. </p>
         )}
-      </div>
-      <div className="reward-container">
-        <h2>Game Bonus:</h2>
-        <br />
-        <h3 className="reward">{powerAwarded}</h3>
+
+        <div className="reward-container">
+          <p className="recorded-text">What I Heard: {textRecorded}</p>
+          <h2>Game Bonus:</h2>
+          <br />
+          <h3 className="reward">{powerAwarded}</h3>
+        </div>
       </div>
     </div>
 

@@ -13,7 +13,6 @@ body {
   display: flex;
   height: 100vh;
   justify-content: center;
-  align-items: center;
   @media (max-width: 900px){
     align-items: start;
   }
@@ -21,7 +20,7 @@ body {
 
 .main-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4rem;
@@ -31,12 +30,6 @@ body {
   background: rgb(227, 238, 243);
   border: 5px solid #616970;
   border-radius: 20px;
-
-  @media (max-width: 900px){
-    flex-direction: column;
-    margin: 10px;
-    width: 360px;
-  }
 }
 
 .image-container{
@@ -94,24 +87,32 @@ body {
 }
 
 .button {
-  height: 3rem;
+  height: 12rem;
   width: 12rem;
-  border-radius: 24px;
+  border-radius: 50%;
   color: white;
   font-weight: 600;
   font-size: 1.25rem;
-  border: none;
+  border: 5px solid #616970;
 
   &:hover {
     cursor: pointer;
+    border: 5px solid #4a5056;
   }
 }
 
 .record-button {
   background-color: rgb(62, 173, 62);
+  -webkit-box-shadow: inset 0px 0px 20px rgb(149, 226, 149);
+  -moz-box-shadow: inset 0px 0px 20px rgb(149, 226, 149);
+       box-shadow: inset 0px 0px 20px rgb(149, 226, 149);
+outline: none;
 
-  &:hover {
-    background-color: rgb(39, 139, 39);
+  &:active{
+  -webkit-box-shadow: inset 0px 0px 20px rgb(24, 104, 24);
+     -moz-box-shadow: inset 0px 0px 20px rgb(24, 104, 24);
+          box-shadow: inset 0px 0px 20px rgb(24, 104, 24);
+   outline: none;
   }
 }
 
@@ -125,10 +126,21 @@ body {
 
 .send-answer-button {
   background-color: #F2A644;
+  -webkit-box-shadow: inset 0px 0px 20px #fad099;
+       -moz-box-shadow: inset 0px 0px 20px #fad099;
+            box-shadow: inset 0px 0px 20px #fad099;
+     outline: none;
 
-  &:hover {
-    background-color: #EE7D3B;
-  }
+  &:active{
+    -webkit-box-shadow: inset 0px 0px 20px #a0671c;
+       -moz-box-shadow: inset 0px 0px 20px #a0671c;
+            box-shadow: inset 0px 0px 20px #a0671c;
+     outline: none;
+    }
+}
+
+.button-label{
+  color: white;
 }
 
 .check-answer-status{
