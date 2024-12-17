@@ -91,7 +91,17 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
                     className="button record-button"
                     onClick={startListening}
                   >
-                    <p className="button-label">Record<br />Your<br />Answer</p>
+                    <p className="button-label">
+                      <span className="lg-button-text">
+                        Record
+                      </span>
+                      <br />
+                      your
+                      <br />
+                      <span className="lg-button-text">
+                        Answer
+                      </span>
+                    </p>
                   </button>
                 </div>
               </div>
@@ -104,7 +114,17 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
                   className="button send-answer-button"
                   onClick={promptChatGpt}
                 >
-                  <p className="button-label">Send<br />Your<br />Answer</p>
+                  <p className="button-label">
+                    <span className="lg-button-text">
+                      Send
+                    </span>
+                    <br />
+                    your
+                    <br />
+                    <span className="lg-button-text">
+                      Answer
+                    </span>
+                  </p>
                 </button>
               </div>
             </div>

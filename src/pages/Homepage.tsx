@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import marty from "../assets/marty.png"
+import callIcon from "../assets/callIcon.png"
 import { RecordAndAnswer } from "../components/RecordAndAnswer"
 
 export function Homepage() {
@@ -37,6 +38,12 @@ export function Homepage() {
   return (
     <div className="main-container">
 
+      <div className="call-marty">
+        <p className="call-text">CALL</p>
+        <img src={callIcon} alt="phone icon" className="call-icon" />
+        <p className="call-text">MARTY</p>
+      </div>
+
       <div className="image-container">
         <img
           src={marty}
@@ -49,6 +56,7 @@ export function Homepage() {
       <div className="marty-text-container">
         <p className="marty-text marty-title">Marty the <span className="marty-yellow">SMARTI</span></p>
         <p className="marty-text marty-subtitle">(<span className="marty-yellow">S</span>uper <span className="marty-yellow">M</span>ighty <span className="marty-yellow">ART</span>ificial <span className="marty-yellow">I</span>ntelligence)</p>
+        <br />
         <p className="marty-text marty-question-text">Question:</p>
         <p className="marty-text marty-question-text">{martyClicked}</p>
       </div>

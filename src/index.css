@@ -7,8 +7,6 @@
 body {
   background-image: url(./assets/back2.jpg);
   background-size: 100%;
-  font-family: "Roboto", sans-serif;
-  font-weight:500;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -24,6 +22,27 @@ body {
   background: rgb(187, 222, 255);
   border: 5px solid #616970;
   border-radius: 20px;
+}
+
+.call-marty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid #616970;
+  height: 330px;
+  width: 330px;
+  background-color: white;
+  &:hover{
+    border: 5px solid #EE7D3B;
+  }
+}
+
+.call-text{
+  font-family: "Coustard", serif;
+  font-size: 2.5rem;
+  color: rgb(28,104,172);
 }
 
 .image-container{
@@ -51,18 +70,21 @@ body {
   padding: 0.5rem 2rem 0.5rem 2rem; 
   background-color: rgb(78,123,166);
   width: 100%;
+  font-family: "Sniglet", serif;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
 }
 
 .marty-title{
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .marty-subtitle{
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 .marty-question-text{
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .marty-yellow{
@@ -125,15 +147,19 @@ body {
   height: 11rem;
   width: 11rem;
   border-radius: 50%;
-  font-weight: 600;
-  font-size: 1.25rem;
   border: 2px solid black;
+  font-family: "Coustard", serif;
+  line-height: 1.5rem;
 
   &:hover {
     cursor: pointer;
     border: 2px solid rgb(53, 52, 52);
     color: rgb(61, 60, 60);
   }
+}
+
+.lg-button-text{
+  font-size: 2rem;
 }
 
 .record-button {
