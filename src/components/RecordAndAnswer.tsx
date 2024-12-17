@@ -142,7 +142,11 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
 
           </>
         ) : (
-          <p>Your browser does not support speech recognition. All modern browsers except Firefox are currently supported. </p>
+          <p>
+            Your browser does not support speech recognition. 
+            <br />
+            All modern browsers except Firefox are currently supported. 
+          </p>
         )}
 
         <div
