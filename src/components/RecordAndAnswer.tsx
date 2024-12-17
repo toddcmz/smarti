@@ -72,33 +72,59 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
         {hasRecognitionSupport ? (
           <>
 
-            <button
-              className="button record-button"
-              //onClick={startListening}
-            >
-              <p className="button-label">Record Your Answer</p>
-            </button>
-
             {currentlyListening ?
-              <p className="currently-recording-status">Status: Recording Your Answer...</p>
+              <div className="outer-button-ring">
+                <div className="inner-button-ring">
+                  <button
+                    className="button stop-record-button"
+                    onClick={stopListening}
+                  >
+                    <p className="button-label">Stop<br />Recording</p>
+                  </button>
+                </div>
+              </div>
+
               :
-              <p className="currently-recording-status">Status: Not Currently Recording</p>
+              <div className="outer-button-ring">
+                <div className="inner-button-ring">
+                  <button
+                    className="button record-button"
+                    onClick={startListening}
+                  >
+                    <p className="button-label">Record<br />Your<br />Answer</p>
+                  </button>
+                </div>
+              </div>
+
             }
 
-            <button
-              className="button send-answer-button"
-              //onClick={promptChatGpt}
-            >
-              <p className="button-label">Send Your Answer</p>
-            </button>
-            <p className="check-answer-status">Marty Says: {checkAnswerResult}</p>
+            <div className="outer-button-ring">
+              <div className="inner-button-ring">
+                <button
+                  className="button send-answer-button"
+                  onClick={promptChatGpt}
+                >
+                  <p className="button-label">Send<br />Your<br />Answer</p>
+                </button>
+              </div>
+            </div>
+
+
           </>
         ) : (
           <p>Your browser does not support speech recognition. All modern browsers except Firefox are currently supported. </p>
         )}
 
         <div className="reward-container">
+
+          {currentlyListening ?
+            <p className="currently-recording-status">Status: Recording Your Answer...</p>
+            :
+            <p className="currently-recording-status">Status: Not Currently Recording</p>
+          }
+
           <p className="recorded-text">What I Heard: {textRecorded}</p>
+          <p className="check-answer-status">Marty Says: {checkAnswerResult}</p>
           <h2>Game Bonus:</h2>
           <br />
           <h3 className="reward">{powerAwarded}</h3>
