@@ -51,9 +51,11 @@ export function Homepage() {
     } else {
 
       if (defineThisTerm === "assets") {
-        setMartyClicked(`What are ${defineThisTerm}?`)
-      } else {
-        setMartyClicked(`What is ${defineThisTerm}?`)
+        setMartyClicked("What are assets?")
+      } else if (defineThisTerm === "budget") {
+        setMartyClicked("What is a budget?")
+      }else{
+        setMartyClicked("What is debt?")
       }
 
       playInitialAudio()

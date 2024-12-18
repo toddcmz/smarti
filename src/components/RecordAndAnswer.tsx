@@ -133,7 +133,9 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
                         Record
                       </span>
                       <br />
-                      your
+                      <span className="sm-button-text">
+                        your
+                      </span>
                       <br />
                       <span className="lg-button-text">
                         Answer
@@ -164,7 +166,9 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
                       Send
                     </span>
                     <br />
-                    your
+                    <span className="sm-button-text">
+                      your
+                    </span>
                     <br />
                     <span className="lg-button-text">
                       Answer

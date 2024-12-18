@@ -37,6 +37,7 @@ body {
   background-color: white;
   &:hover{
     border: 5px solid #EE7D3B;
+    cursor: pointer;
   }
 }
 
@@ -64,8 +65,8 @@ body {
 .marty-logo {
   border-radius: 50%;
   border: 5px solid #616970;
-  height: 330px;
-  width: 330px;
+  height: 20vh;
+  width: auto;
   &:hover{
     border: 5px solid #EE7D3B;
     cursor: pointer;
@@ -85,15 +86,15 @@ body {
 }
 
 .marty-title{
-  font-size: 1.75rem;
+  font-size: 1.1rem;
 }
 
 .marty-subtitle{
-  font-size: 0.85rem;
+  font-size: 0.55rem;
 }
 
 .marty-question-text{
-  font-size: 1.25rem;
+  font-size: 0.75rem;
 }
 
 .marty-yellow{
@@ -120,7 +121,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .recording-results {
@@ -128,7 +129,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .inner-button-ring{
@@ -138,8 +139,8 @@ body {
   border-radius: 50%;
   border: 3px solid black;
   background-color: rgb(106, 106, 106);
-  height: 13rem;
-  width: 13rem;
+  height: 14vh;
+  width: 14vh;
   
 }
 
@@ -148,19 +149,19 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(106, 106, 106);
-  height: 15rem;
-  width: 15rem;
+  height: 16vh;
+  width: 16vh;
   border-radius: 50%;
   border: 1px solid black;
 }
 
 .button {
-  height: 11rem;
-  width: 11rem;
+  height: 11vh;
+  width: 11vh;
   border-radius: 50%;
   border: 2px solid black;
   font-family: "Coustard", serif;
-  line-height: 1.5rem;
+  line-height: 0.7rem;
   color: black;
 
   &:hover {
@@ -171,7 +172,11 @@ body {
 }
 
 .lg-button-text{
-  font-size: 2rem;
+  font-size: 0.9rem;
+}
+
+.sm-button-text{
+  font-size: .7rem;
 }
 
 .send-answer-button {
