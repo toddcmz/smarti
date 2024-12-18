@@ -31,8 +31,8 @@ body {
   align-items: center;
   border-radius: 50%;
   border: 5px solid #616970;
-  height: 20vh;
-  width: 20vh;
+  height: 18vh;
+  width: 18vh;
   margin: 1rem;
   background-color: white;
   &:hover{
@@ -65,7 +65,7 @@ body {
 .marty-logo {
   border-radius: 50%;
   border: 5px solid #616970;
-  height: 20vh;
+  height: 18vh;
   width: auto;
   &:hover{
     border: 5px solid #EE7D3B;
@@ -121,7 +121,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .recording-results {
