@@ -29,6 +29,7 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
   useEffect(() => {
     let tempContent = checkAnswerResult.slice(0, 2).toLowerCase()
     if (checkAnswerResult === "Waiting for a Recording" ||
+      checkAnswerResult === "Heard Nothing" ||
       defineThisTerm === "No Term Yet" ||
       textRecorded === "No Recording Yet"
     ) {
@@ -51,7 +52,10 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
       setCheckAnswerResult("No question asked, yet. Click my picture to get a question, then record an answer.")
       return
     } else if (textRecorded === "No Recording Yet") {
-      setCheckAnswerResult("No answer recorded, yet. Record an answer to have me check it.")
+      setCheckAnswerResult("No answer recorded, yet.")
+      return
+    } else if (textRecorded === "" || textRecorded === null){
+      setCheckAnswerResult("Heard Nothing")
       return
     }
     try {
@@ -117,7 +121,15 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
               </div>
 
             }
-
+            {checkAnswerResult === "Heard Nothing" ? 
+            <div className="recording-error">
+              <p>Nothing recorded. Try again,
+              <br />
+              or check mic is enabled.</p>
+            </div>
+            :
+            <></>
+            }
             <div className="outer-button-ring">
               <div className="inner-button-ring">
                 <button
