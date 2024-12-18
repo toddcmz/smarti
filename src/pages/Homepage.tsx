@@ -2,11 +2,10 @@ import { useEffect, useState } from "react"
 import marty from "../assets/marty.png"
 import callIcon from "../assets/callIcon.png"
 import { RecordAndAnswer } from "../components/RecordAndAnswer"
-import martyGreeting from "../assets/audio/martyGreeting.mp3"
-import assetsQuestion from "../assets/audio/assetsQuestion.mp3"
-import budgetQuestion from "../assets/audio/budgetQuestion.mp3"
-import debtQuestion from "../assets/audio/debtQuestion.mp3"
-import recordSendInstructions from "../assets/audio/recordSendInstructions.mp3"
+import assetsIntro from "../assets/audio/assetsIntro.mp3"
+import budgetIntro from "../assets/audio/budgetIntro.mp3"
+import debtIntro from "../assets/audio/debtIntro.mp3"
+
 
 export function Homepage() {
 
@@ -29,36 +28,24 @@ export function Homepage() {
     console.log(thisTermIndex)
   }
 
-  function playInitialAudio(){
-    let playGreeting = new Audio(martyGreeting)
-      playGreeting.play()
+  function playInitialAudio() {
 
-      if (defineThisTerm === "assets") {
-        setTimeout(() => {
-          let audioQuestion = new Audio(assetsQuestion)
-          audioQuestion.play()
-        }, 7500)
-      }
-      if (defineThisTerm === "budget") {
-        setTimeout(() => {
-          let audioQuestion = new Audio(budgetQuestion)
-          audioQuestion.play()
-        }, 7500)
-      }
-      if (defineThisTerm === "debt") {
-        setTimeout(() => {
-          let audioQuestion = new Audio(debtQuestion)
-          audioQuestion.play()
-        }, 7500)
-      }
-
-      setTimeout(() => {
-        let audioInstructions = new Audio(recordSendInstructions)
-        audioInstructions.play()
-      }, 12000)
+    if (defineThisTerm === "assets") {
+      let audioQuestion = new Audio(assetsIntro)
+      audioQuestion.play()
+    }
+    if (defineThisTerm === "budget") {
+      let audioQuestion = new Audio(budgetIntro)
+      audioQuestion.play()
+    }
+    if (defineThisTerm === "debt") {
+      let audioQuestion = new Audio(debtIntro)
+      audioQuestion.play()
+    }
   }
 
   useEffect(() => {
+
     if (defineThisTerm === 'No Term Yet') {
       return
     } else {

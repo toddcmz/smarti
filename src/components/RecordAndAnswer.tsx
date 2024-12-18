@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import axios from "axios"
-import oops from "../assets/audio/oops.mp3"
 import correctEnding from "../assets/audio/correctEnding.mp3"
-import assetsCorrectAnswer from "../assets/audio/assetsCorrectAnswer.mp3"
-import budgetCorrectAnswer from "../assets/audio/budgetCorrectAnswer.mp3"
-import debtCorrectAnswer from "../assets/audio/debtCorrectAnswer.mp3"
-import incorrectAnswerEnding from "../assets/audio/incorrectAnswerEnding.mp3"
+import assetsIncorrect from "../assets/audio/assetsIncorrect.mp3"
+import budgetIncorrect from "../assets/audio/budgetIncorrect.mp3"
+import debtIncorrect from "../assets/audio/debtIncorrect.mp3"
 
 type Props = {
   defineThisTerm: string
@@ -38,33 +36,19 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
   }
 
   function playWrongEnding() {
-    let endingOops = new Audio(oops)
-    endingOops.play()
 
     if (defineThisTerm == "assets") {
-      setTimeout(() => {
-        let endingAnswer = new Audio(assetsCorrectAnswer)
-        endingAnswer.play()
-      }, 1000)
+      let endingAnswer = new Audio(assetsIncorrect)
+      endingAnswer.play()
     }
     if (defineThisTerm == "budget") {
-      setTimeout(() => {
-        let endingAnswer = new Audio(budgetCorrectAnswer)
-        endingAnswer.play()
-      }, 1000)
+      let endingAnswer = new Audio(budgetIncorrect)
+      endingAnswer.play()
     }
     if (defineThisTerm == "debt") {
-      setTimeout(() => {
-        let endingAnswer = new Audio(debtCorrectAnswer)
-        endingAnswer.play()
-      }, 1000)
+      let endingAnswer = new Audio(debtIncorrect)
+      endingAnswer.play()
     }
-
-    setTimeout(() => {
-      let incorrectEnding = new Audio(incorrectAnswerEnding)
-      incorrectEnding.play()
-    }, 4500)
-
   }
 
   useEffect(() => {
