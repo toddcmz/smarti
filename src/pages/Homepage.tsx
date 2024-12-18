@@ -2,12 +2,17 @@ import { useEffect, useState } from "react"
 import marty from "../assets/marty.png"
 import callIcon from "../assets/callIcon.png"
 import { RecordAndAnswer } from "../components/RecordAndAnswer"
+import martyGreeting from "../assets/audio/martyGreeting.mp3"
+import assetsQuestion from "../assets/audio/assetsQuestion.mp3"
+import budgetQuestion from "../assets/audio/budgetQuestion.mp3"
+import debtQuestion from "../assets/audio/debtQuestion.mp3"
+import recordSendInstructions from "../assets/audio/recordSendInstructions.mp3"
 
 export function Homepage() {
 
   const [martyClicked, setMartyClicked] = useState("notClicked")
 
-  const financeTerms = ['debt', 'budget', 'credit', 'interest', 'assets', 'inflation', 'taxes']
+  const financeTerms = ['debt', 'budget', 'assets']
   const [defineThisTerm, setDefineThisTerm] = useState('No Term Yet')
 
   function clickedOnMarty() {
@@ -24,14 +29,48 @@ export function Homepage() {
     console.log(thisTermIndex)
   }
 
+  function playInitialAudio(){
+    let playGreeting = new Audio(martyGreeting)
+      playGreeting.play()
+
+      if (defineThisTerm === "assets") {
+        setTimeout(() => {
+          let audioQuestion = new Audio(assetsQuestion)
+          audioQuestion.play()
+        }, 7500)
+      }
+      if (defineThisTerm === "budget") {
+        setTimeout(() => {
+          let audioQuestion = new Audio(budgetQuestion)
+          audioQuestion.play()
+        }, 7500)
+      }
+      if (defineThisTerm === "debt") {
+        setTimeout(() => {
+          let audioQuestion = new Audio(debtQuestion)
+          audioQuestion.play()
+        }, 7500)
+      }
+
+      setTimeout(() => {
+        let audioInstructions = new Audio(recordSendInstructions)
+        audioInstructions.play()
+      }, 12000)
+  }
+
   useEffect(() => {
     if (defineThisTerm === 'No Term Yet') {
       return
     } else {
-      let martyQuestion = new SpeechSynthesisUtterance(`Marty here. In the context of finances, can you give a short definition or example for ${defineThisTerm}?`)
-      speechSynthesis.speak(martyQuestion)
-      setMartyClicked(`What is ${defineThisTerm}?`)
-      console.log(defineThisTerm)
+
+      if (defineThisTerm === "assets") {
+        setMartyClicked(`What are ${defineThisTerm}?`)
+      } else {
+        setMartyClicked(`What is ${defineThisTerm}?`)
+      }
+
+      playInitialAudio()
+
     }
   }, [defineThisTerm])
 

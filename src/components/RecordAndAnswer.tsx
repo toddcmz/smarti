@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react"
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import axios from "axios"
+import oops from "../assets/audio/oops.mp3"
+import correctEnding from "../assets/audio/correctEnding.mp3"
+import assetsCorrectAnswer from "../assets/audio/assetsCorrectAnswer.mp3"
+import budgetCorrectAnswer from "../assets/audio/budgetCorrectAnswer.mp3"
+import debtCorrectAnswer from "../assets/audio/debtCorrectAnswer.mp3"
+import incorrectAnswerEnding from "../assets/audio/incorrectAnswerEnding.mp3"
 
 type Props = {
   defineThisTerm: string
@@ -26,6 +32,41 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
     setShowInteractionDetails(!showInteractionDetails)
   }
 
+  function playCorrectEnding() {
+    let endingAudio = new Audio(correctEnding)
+    endingAudio.play()
+  }
+
+  function playWrongEnding() {
+    let endingOops = new Audio(oops)
+    endingOops.play()
+
+    if (defineThisTerm == "assets") {
+      setTimeout(() => {
+        let endingAnswer = new Audio(assetsCorrectAnswer)
+        endingAnswer.play()
+      }, 1000)
+    }
+    if (defineThisTerm == "budget") {
+      setTimeout(() => {
+        let endingAnswer = new Audio(budgetCorrectAnswer)
+        endingAnswer.play()
+      }, 1000)
+    }
+    if (defineThisTerm == "debt") {
+      setTimeout(() => {
+        let endingAnswer = new Audio(debtCorrectAnswer)
+        endingAnswer.play()
+      }, 1000)
+    }
+
+    setTimeout(() => {
+      let incorrectEnding = new Audio(incorrectAnswerEnding)
+      incorrectEnding.play()
+    }, 4500)
+
+  }
+
   useEffect(() => {
     let tempContent = checkAnswerResult.slice(0, 2).toLowerCase()
     if (checkAnswerResult === "Waiting for a Recording" ||
@@ -36,13 +77,11 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
       return
     } else if (tempContent === "ye") {
 
-      let martyAnswer = new SpeechSynthesisUtterance("You are so right! Pick a smarty card to see what you've won.")
-      speechSynthesis.speak(martyAnswer)
+      playCorrectEnding()
 
     } else {
 
-      let martyAnswer = new SpeechSynthesisUtterance("Oopsy, Marty thinks that wasn't quite right. Better luck next time.")
-      speechSynthesis.speak(martyAnswer)
+      playWrongEnding()
 
     }
   }, [checkAnswerResult])
@@ -54,7 +93,7 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
     } else if (textRecorded === "No Recording Yet") {
       setCheckAnswerResult("No answer recorded, yet.")
       return
-    } else if (textRecorded === "" || textRecorded === null){
+    } else if (textRecorded === "" || textRecorded === null) {
       setCheckAnswerResult("Heard Nothing")
       return
     }
@@ -121,14 +160,14 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
               </div>
 
             }
-            {checkAnswerResult === "Heard Nothing" ? 
-            <div className="recording-error">
-              <p>Nothing recorded. Try again,
-              <br />
-              or check mic is enabled.</p>
-            </div>
-            :
-            <></>
+            {checkAnswerResult === "Heard Nothing" ?
+              <div className="recording-error">
+                <p>Nothing recorded. Try again,
+                  <br />
+                  or check mic is enabled.</p>
+              </div>
+              :
+              <></>
             }
             <div className="outer-button-ring">
               <div className="inner-button-ring">
@@ -155,9 +194,9 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
           </>
         ) : (
           <p>
-            Your browser does not support speech recognition. 
+            Your browser does not support speech recognition.
             <br />
-            All modern browsers except Firefox are currently supported. 
+            All modern browsers except Firefox are currently supported.
           </p>
         )}
 
