@@ -171,7 +171,7 @@ body {
   font-size: 2rem;
 }
 
-.record-button {
+.send-answer-button {
   background-color: rgb(62, 173, 62);
   box-shadow: inset 0px 0px 20px rgb(149, 226, 149);
 
@@ -180,7 +180,7 @@ body {
   }
 }
 
-.stop-record-button {
+.record-button {
   background-color: brown;
   box-shadow: inset 0px 0px 20px rgb(238, 145, 145);
 
@@ -189,7 +189,7 @@ body {
   }
 }
 
-.send-answer-button {
+.stop-record-button {
   background-color: #F2A644;
   box-shadow: inset 0px 0px 20px #fad099;
 
