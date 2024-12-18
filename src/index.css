@@ -200,14 +200,14 @@ body {
 .stop-record-button {
   background-color: #F2A644;
   box-shadow: inset 0px 0px 20px #fad099;
-
+  line-height: 0.9rem;
   &:active{
       box-shadow: inset 0px 0px 20px #a0671c;
     }
 }
 
 .button-label{
-  font-size: 1.5rem;
+  font-size: 0.9rem;
 }
 
 .check-answer-status{
