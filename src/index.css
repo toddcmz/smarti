@@ -31,8 +31,8 @@ body {
   align-items: center;
   border-radius: 50%;
   border: 5px solid #616970;
-  height: 330px;
-  width: 330px;
+  height: 20vh;
+  width: 20vh;
   margin: 1rem;
   background-color: white;
   &:hover{
@@ -42,15 +42,15 @@ body {
 }
 
 .call-icon{
-  height: 70px;
+  height: 5vh;
   width: auto;
-  margin-top: 0.65rem;
-  margin-bottom: 0.65rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .call-text{
   font-family: "Coustard", serif;
-  font-size: 2.5rem;
+  font-size: 1.4rem;
   color: rgb(28,104,172);
 }
 
