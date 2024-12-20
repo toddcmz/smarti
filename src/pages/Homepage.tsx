@@ -123,10 +123,7 @@ export function Homepage() {
         }
       </div>
 
-
         <RecordAndAnswer defineThisTerm={defineThisTerm} />
-
-
 
     </div>
 
