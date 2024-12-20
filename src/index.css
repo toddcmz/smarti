@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: 288px;
   margin: 2rem;
   background: rgb(187, 222, 255);
   border: 5px solid #616970;
@@ -33,7 +33,7 @@ body {
   border: 5px solid #616970;
   height: 18vh;
   width: 18vh;
-  margin: 1rem;
+  margin: 0.5rem;
   background-color: white;
   &:hover{
     border: 5px solid #EE7D3B;
@@ -50,7 +50,7 @@ body {
 
 .call-text{
   font-family: "Coustard", serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: rgb(28,104,172);
 }
 
@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .marty-logo {
@@ -80,6 +80,7 @@ body {
   padding: 0.5rem 2rem 0.5rem 2rem; 
   background-color: rgb(78,123,166);
   width: 100%;
+  height: 118px;
   font-family: "Sniglet", serif;
   letter-spacing: 0.2rem;
   font-weight: 500;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import marty from "../assets/marty.png"
+import marty from "../assets/martyHeadshot.png"
 import callIcon from "../assets/callIcon.png"
 import { RecordAndAnswer } from "../components/RecordAndAnswer"
 import assetsIntro from "../assets/audio/assetsIntro.mp3"
@@ -25,7 +25,6 @@ export function Homepage() {
     } else {
       setDefineThisTerm(financeTerms[thisTermIndex])
     }
-    console.log(thisTermIndex)
   }
 
   function playInitialAudio() {
@@ -50,16 +49,18 @@ export function Homepage() {
       return
     } else {
 
-      if (defineThisTerm === "assets") {
-        setMartyClicked("What are assets?")
-      } else if (defineThisTerm === "budget") {
-        setMartyClicked("What is a budget?")
-      }else{
-        setMartyClicked("What is debt?")
-      }
-
       playInitialAudio()
 
+      setTimeout(()=>{
+        if (defineThisTerm === "assets") {
+          setMartyClicked("What are assets?")
+        } else if (defineThisTerm === "budget") {
+          setMartyClicked("What is a budget?")
+        } else {
+          setMartyClicked("What is debt?")
+        }
+      },1200)
+      
     }
   }, [defineThisTerm])
 
@@ -86,23 +87,23 @@ export function Homepage() {
         </div>
       }
 
-      {martyClicked === "notClicked" ?
-        <></>
-        :
-        <div className="marty-text-container">
-          <p className="marty-text marty-title">Marty the <span className="marty-yellow">SMARTI</span></p>
-          <p className="marty-text marty-subtitle">(<span className="marty-yellow">S</span>uper <span className="marty-yellow">M</span>ighty <span className="marty-yellow">ART</span>ificial <span className="marty-yellow">I</span>ntelligence)</p>
-          <br />
-          <p className="marty-text marty-question-text">Question:</p>
-          <p className="marty-text marty-question-text">{martyClicked}</p>
-        </div>
-      }
+      <div className="marty-text-container">
+        {martyClicked === "notClicked" ?
+          <></>
+          :
+          <>
+            <p className="marty-text marty-title">Marty the <span className="marty-yellow">SMARTI</span></p>
+            <p className="marty-text marty-subtitle">(<span className="marty-yellow">S</span>uper <span className="marty-yellow">M</span>ighty <span className="marty-yellow">ART</span>ificial <span className="marty-yellow">I</span>ntelligence)</p>
+            <br />
+            <p className="marty-text marty-question-text">Question:</p>
+            <p className="marty-text marty-question-text">{martyClicked}</p>
+          </>
+        }
+      </div>
 
-      {martyClicked === "notClicked" ?
-        <></>
-        :
+
         <RecordAndAnswer defineThisTerm={defineThisTerm} />
-      }
+
 
 
     </div>

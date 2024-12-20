@@ -72,7 +72,7 @@ export function RecordAndAnswer({ defineThisTerm }: Props) {
 
   const promptChatGpt = async () => {
     if (defineThisTerm === "No Term Yet") {
-      setCheckAnswerResult("No question asked, yet. Click my picture to get a question, then record an answer.")
+      setCheckAnswerResult("No question asked, yet. Click or tap 'Call Marty' to get a question, then record an answer.")
       return
     } else if (textRecorded === "No Recording Yet") {
       setCheckAnswerResult("No answer recorded, yet.")
