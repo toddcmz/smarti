@@ -5,7 +5,9 @@ import { RecordAndAnswer } from "../components/RecordAndAnswer"
 import assetsIntro from "../assets/audio/assetsIntro.mp3"
 import budgetIntro from "../assets/audio/budgetIntro.mp3"
 import debtIntro from "../assets/audio/debtIntro.mp3"
-
+import assetsShortIntro from "../assets/audio/assetsShortIntro.mp3"
+import budgetShortIntro from "../assets/audio/budgetShortIntro.mp3"
+import debtShortIntro from "../assets/audio/debtShortIntro.mp3"
 
 export function Homepage() {
 
@@ -43,13 +45,33 @@ export function Homepage() {
     }
   }
 
+  function playShortInitialAudio() {
+
+    if (defineThisTerm === "assets") {
+      let audioQuestion = new Audio(assetsShortIntro)
+      audioQuestion.play()
+    }
+    if (defineThisTerm === "budget") {
+      let audioQuestion = new Audio(budgetShortIntro)
+      audioQuestion.play()
+    }
+    if (defineThisTerm === "debt") {
+      let audioQuestion = new Audio(debtShortIntro)
+      audioQuestion.play()
+    }
+  }
   useEffect(() => {
 
     if (defineThisTerm === 'No Term Yet') {
       return
     } else {
 
-      playInitialAudio()
+      if(martyClicked === "notClicked"){
+        playInitialAudio()
+      }else{
+        playShortInitialAudio()
+      }
+      
 
       setTimeout(()=>{
         if (defineThisTerm === "assets") {
